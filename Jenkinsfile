@@ -8,8 +8,6 @@ pipeline {
         DOCKER_IMAGE_NAME = "reg.foobz.com.au/foobz/train-schedule-sc"
     }
 
-    tools {nodejs "nodejs"}
-
     stages {
         stage('Build Apps and Test') {
             steps {
