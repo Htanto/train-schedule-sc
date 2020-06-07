@@ -1,7 +1,5 @@
 pipeline {
     agent any
-    tools {nodejs "nodejs"}
-    tools {gradle "gradle"}
     environment {
         //Docker Hub
         DISPLAY_NAME = "Trains Schedule Apps"
@@ -9,6 +7,9 @@ pipeline {
         FQDN = "train.foobz.com.au"
         DOCKER_IMAGE_NAME = "reg.foobz.com.au/foobz/train-schedule-sc"
     }
+
+    tools {nodejs "nodejs"}
+
     stages {
         stage('Build Apps and Test') {
             steps {
