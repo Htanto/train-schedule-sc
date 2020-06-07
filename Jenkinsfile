@@ -1,5 +1,7 @@
 pipeline {
     agent any
+    tools {nodejs "nodejs"}
+    tools {gradle "gradle"}
     environment {
         //Docker Hub
         DISPLAY_NAME = "Trains Schedule Apps"
@@ -11,7 +13,7 @@ pipeline {
         stage('Build Apps and Test') {
             steps {
                 echo 'Running build automation'
-                sh './gradlew build --no-daemon --scan'
+                sh './gradlew build --no-daemon'
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
             post {
