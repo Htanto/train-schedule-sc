@@ -11,7 +11,7 @@ pipeline {
         stage('Build Apps and Test') {
             steps {
                 echo 'Running build automation'
-                sh './gradlew build --no-daemon'
+                sh './gradlew build --no-daemon --scan'
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
             post {
